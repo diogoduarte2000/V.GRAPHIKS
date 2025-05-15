@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V.Graphiks Corp - Motion & Graphic Design</title>
+    <style>
+        /* Estilos Gerais */
+        body {
+            margin: 0;
+            padding: 40px 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffb600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        /* Container Principal */
+        .container {
+            background-color: #f6efe5;
+            width: 80%;
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+        
+        /* Imagem do Cabeçalho */
+        .header-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        /* Títulos */
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        
+        h2 {
+            color: #222;
+            margin-top: 0;
+            border-bottom: 2px solid #ffb600;
+            padding-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        /* Seção "Quem Somos" */
+        .about {
+            margin-bottom: 40px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .about p {
+            margin-bottom: 15px;
+        }
+        
+        /* Informações de Contato */
+        .contact-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info p strong {
+            min-width: 80px;
+            display: inline-block;
+        }
+        
+        /* Formulário de Contato */
+        .contact-form {
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: #ffb600;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 182, 0, 0.2);
+        }
+        
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Botão */
+        button {
+            background-color: #ffb600;
+            color: #333;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 1em;
+            width: 100%;
+            max-width: 200px;
+        }
+        
+        button:hover {
+            background-color: #e6a500;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Rodapé */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.9em;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 0;
+            }
+            
+            .container {
+                width: 90%;
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 0;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            button {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Imagem no Topo -->
+        <img src="img/head.png" alt="V.Graphiks Corp - Motion Design" class="header-image">
+        
+        <h1>V.Graphiks Corp</h1>
+        
+        <div class="about">
+            <h2>Quem Somos</h2>
+            <p>Somos uma empresa especializada em Motion Design e Graphic Design, dedicada a criar soluções visuais impactantes e criativas para o seu negócio. Combinamos técnica e arte para transformar suas ideias em realidade visual, seja através de animações envolventes ou identidades visuais marcantes.</p>
+            <p>Nossa equipe de designers talentosos trabalha para entregar produtos de alta qualidade que comunicam efetivamente a mensagem da sua marca e cativam seu público-alvo.</p>
+        </div>
+        
+        <div class="contact-info">
+            <h2>Contactos</h2>
+            <p><strong>Telefone:</strong> 933 402 201</p>
+            <p><strong>Email:</strong> v.graphikscorp@gmail.com</p>
+        </div>
+        
+        <div class="contact-form">
+            <h2>Envie-nos uma mensagem</h2>
+            <form action="mailto:v.graphikscorp@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 V.Graphiks Corp. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
