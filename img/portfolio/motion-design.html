@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Design para Campanha | V.Graphiks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .project-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        
+        .project-details {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .video-container {
+            margin: 30px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .project-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #ffb600;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="main-container">
+            <a href="../index.html#portfolio" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+            </a>
+            
+            <div class="project-hero">
+                <video autoplay muted loop>
+                    <source src="../vid/motion-teaser.mp4" type="video/mp4">
+                </video>
+                <div class="project-hero-content">
+                    <h1>Motion Design para Campanha</h1>
+                    <p>Animações e Vídeos Promocionais</p>
+                </div>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-details">
+                    <h2>Campanha Digital</h2>
+                    <p>Série de animações criadas para a campanha de lançamento do novo aplicativo de bem-estar mental "feasy".</p>
+                    
+                    <div class="video-container">
+                        <video controls poster="../img/motion-poster.jpg">
+                            <source src="../vid/Comp 2.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                    </div>
+                    
+                    <h3>Processo Criativo</h3>
+                    <p>Desenvolvemos um conjunto de animações para um billboard de 10 segundos</p>
+                    <ul>
+
+                    </ul>
+                    
+                    <div class="project-specs">
+                        <h3>Especificações</h3>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <h4>Cliente</h4>
+                                <p>FEASY APP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Ano</h4>
+                                <p>2025</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Serviços</h4>
+                                <p>Motion Design, Animação 2D</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-gallery">
+                    <img src="../img/exemplo laranja2.png" alt="imagem 1">
+                    <img src="../img/Screenshot 2025-05-17 162858.png" alt="">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
