@@ -1,3 +1,4 @@
+/* Estilos Gerais */
 body {
     margin: 0;
     padding: 0;
@@ -56,6 +57,7 @@ h1 {
     text-align: center;
     margin-top: 0;
     margin-bottom: 30px;
+    font-size: 2.2em;
 }
 
 .about {
@@ -134,7 +136,7 @@ h1 {
 .gmail-btn {
     display: inline-flex;
     align-items: center;
-    background-color: #ffb600;
+    background-color: #ffffff;
     color: #333;
     padding: 12px 25px;
     border-radius: 4px;
@@ -153,14 +155,14 @@ h1 {
 }
 
 .gmail-btn:hover {
-    background-color: #e6a500;
+    background-color: #fff5e0;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Links */
 .contact-info a {
-    color: #ffb600;
+    color: #122aff;
     text-decoration: none;
     transition: color 0.3s;
     display: inline-flex;
@@ -180,6 +182,40 @@ footer {
     font-size: 14px;
 }
 
+/* Botão de Tradução */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.translate-btn {
+    background-color: #f6efe5;
+    color: #333;
+    border: 2px solid #ffb600;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.translate-btn:hover {
+    background-color: #ffb600;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.translate-btn i {
+    font-size: 18px;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .header-container, .main-container {
@@ -197,5 +233,10 @@ footer {
     
     .portfolio-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .translate-btn {
+        padding: 10px 15px;
+        font-size: 14px;
     }
 }
