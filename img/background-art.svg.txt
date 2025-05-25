@@ -1,0 +1,55 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" >
+  <defs>
+    <style>
+      .red { fill: #e63946; }
+      .blue { fill: #4361ee; }
+      .yellow { fill: #ffcc00; }
+      .spiral {
+        fill: none;
+        stroke-width: 3;
+        stroke-linejoin: round;
+      }
+      .spiral-red { stroke: #e63946; }
+      .spiral-blue { stroke: #4361ee; }
+    </style>
+  </defs>
+
+  <!-- Quadrados canto esquerdo -->
+  <rect x="20" y="20" width="60" height="60" class="red" />
+  <rect x="100" y="90" width="40" height="40" class="yellow" />
+  <rect x="50" y="140" width="50" height="50" class="blue" />
+
+  <!-- Triângulos canto esquerdo -->
+  <polygon points="10,220 70,220 40,270" class="blue" />
+  <polygon points="80,260 120,260 100,300" class="red" />
+  <polygon points="20,310 50,340 10,360" class="yellow" />
+
+  <!-- Espiral canto esquerdo -->
+  <path class="spiral spiral-red" d="
+    M 70 380
+    q 20 -40 40 0
+    q -20 40 -40 0
+    q 20 -40 40 0
+    q -20 40 -40 0
+    " />
+
+  <!-- Quadrados canto direito -->
+  <rect x="720" y="20" width="60" height="60" class="blue" />
+  <rect x="650" y="90" width="40" height="40" class="red" />
+  <rect x="700" y="140" width="50" height="50" class="yellow" />
+
+  <!-- Triângulos canto direito -->
+  <polygon points="790,220 730,220 760,270" class="red" />
+  <polygon points="720,260 680,260 700,300" class="blue" />
+  <polygon points="780,310 750,340 790,360" class="yellow" />
+
+  <!-- Espiral canto direito -->
+  <path class="spiral spiral-blue" d="
+    M 730 380
+    q 20 -40 40 0
+    q -20 40 -40 0
+    q 20 -40 40 0
+    q -20 40 -40 0
+    " />
+
+</svg>
