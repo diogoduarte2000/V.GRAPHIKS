@@ -3,35 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motion Design Fasy - Sistema de Faturação</title>
+    <title data-i18n="projectTitleID">Identidade Visual Corporativa / Web design</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../styles.css">
     <style>
         .project-hero {
-            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
             color: white;
             padding: 60px 0;
             text-align: center;
             margin-bottom: 40px;
             border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-hero video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        .project-hero-content {
-            position: relative;
-            z-index: 1;
         }
 
         .project-content {
@@ -45,18 +27,6 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .video-container {
-            margin: 30px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .video-container video {
-            width: 100%;
-            display: block;
         }
 
         .project-gallery {
@@ -89,39 +59,43 @@
             margin-right: 8px;
         }
 
-        /* NOVO ESTILO PARA O BOTÃO DE IDIOMA */
+        .brand-colors {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
         .language-selector-container {
-            position: fixed;
+            position: absolute;
             top: 20px;
             right: 20px;
             z-index: 100;
         }
 
         .language-selector {
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 2px solid #4361ee;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #ffb600;
             background-color: white;
             color: #333;
             font-family: 'Arial', sans-serif;
             cursor: pointer;
             outline: none;
-            font-size: 14px;
-            font-weight: bold;
-            width: 80px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .language-selector:hover {
-            background-color: #4361ee;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .language-selector:focus {
-            border-color: #3a0ca3;
         }
     </style>
 </head>
@@ -140,35 +114,35 @@
             </a>
 
             <div class="project-hero">
-                <!-- Vídeo com autoplay e loop -->
-                <video autoplay muted loop playsinline>
-                    <source src="../vid/motion-teaser.mp4" type="video/mp4">
-                </video>
-                <div class="project-hero-content">
-                    <h1 data-i18n="projectTitleFeasy">Motion Design para Campanha</h1>
-                    <p data-i18n="projectSubtitleFeasy">Animações e Vídeos Promocionais</p>
-                </div>
+                <h1 data-i18n="projectTitleID">Identidade Visual Corporativa / Web design</h1>
+                <p data-i18n="projectSubtitleID">Criação de um site "loja digital"</p>
             </div>
 
             <div class="project-content">
                 <div class="project-details">
-                    <h2>Campanha Digital</h2>
-                    <p>Série de animações criadas para a campanha de lançamento do novo aplicativo de bem-estar mental "feasy".</p>
+                    <h2>O Projeto</h2>
+                    <p>Desenvolvimento completo de um site como loja online para venda de mobiliário.</p>
 
-                    <div class="video-container">
-                        <!-- Vídeo principal também com autoplay e loop -->
-                        <video autoplay muted loop controls poster="../img/motion-poster.jpg">
-                            <source src="../vid/Comp 2.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeos HTML5.
-                        </video>
+                    <div class="project-gallery">
+                        <img src="../img/STORE 1.png" alt="">
                     </div>
 
-                    <h3>Processo Criativo</h3>
-                    <p>Desenvolvemos um conjunto de animações para um billboard de 10 segundos</p>
+                    <h3>Paleta de Cores</h3>
+                    <div class="brand-colors">
+                        <div class="color-swatch" style="background-color: #56575a;">CINZA CLARO<br>#56575a</div>
+                        <div class="color-swatch" style="background-color: #74979e;">Ciano FUGIDO<br>#74979e</div>
+                        <div class="color-swatch" style="background-color: #464244;">CINZENTO<br>#464244</div>
+                        <div class="color-swatch" style="background-color: #a57124;">CASTANHO<br>#a57124</div>
+                        <div class="color-swatch" style="background-color: #11910d;">VERDE CLARO<br>#11910d</div>
+                    </div>
+
+                    <h3>Elementos Visuais</h3>
+                    <p>Criamos um sistema de design completo incluindo:</p>
                     <ul>
-                        <li>Storyboard e concept frames</li>
-                        <li>Animação no After Effects</li>
-                        <li>Renderização otimizada para web</li>
+                        <li>Interface responsivo</li>
+                        <li>UX / UI optimizado</li>
+                        <li>Padrões visuais para aplicações</li>
+                        <li>Diretrizes de marca</li>
                     </ul>
 
                     <div class="project-specs">
@@ -176,23 +150,27 @@
                         <div class="specs-grid">
                             <div class="spec-item">
                                 <h4>Cliente</h4>
-                                <p>FEASY APP</p>
+                                <p>UrbanTech Solutions</p>
                             </div>
                             <div class="spec-item">
                                 <h4>Ano</h4>
-                                <p>2025</p>
+                                <p>2023</p>
                             </div>
                             <div class="spec-item">
                                 <h4>Serviços</h4>
-                                <p>Motion Design, Animação 2D</p>
+                                <p>Branding, Web Design</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-gallery">
-                    <img src="../img/exemplo laranja2.png" alt="imagem 1">
-                    <img src="../img/Screenshot 2025-05-17 162858.png" alt="">
+                    <img src="../img/STORE 1.png" alt="">
+                    <img src="../img/STORE 2.png" alt="">
+                    <img src="../img/STORE 3.png" alt="">
+                    <img src="../img/STORE 4.png" alt="">
+                    <img src="../img/store exemplo.png" alt="">
+                    <img src="../img/app.png" alt="">
                 </div>
             </div>
         </div>
@@ -202,13 +180,13 @@
         const translations = {
             pt: {
                 back: "Voltar ao Portfólio",
-                projectTitleFeasy: "Motion Design para Campanha",
-                projectSubtitleFeasy: "Animações e Vídeos Promocionais"
+                projectTitleID: "Identidade Visual Corporativa / Web design",
+                projectSubtitleID: "Criação de um site \"loja digital\""
             },
             en: {
                 back: "Back to Portfolio",
-                projectTitleFeasy: "Motion Design for Campaign",
-                projectSubtitleFeasy: "Animations and Promotional Videos"
+                projectTitleID: "Corporate Visual Identity / Web Design",
+                projectSubtitleID: "Creation of a digital shop website"
             }
         };
 
@@ -218,15 +196,6 @@
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 el.textContent = translations[lang][key];
-            });
-        });
-
-        // Forçar autoplay em dispositivos móveis
-        document.addEventListener('DOMContentLoaded', function() {
-            const videos = document.querySelectorAll('video');
-            videos.forEach(video => {
-                video.muted = true;
-                video.play().catch(e => console.log("Autoplay prevented:", e));
             });
         });
     </script>

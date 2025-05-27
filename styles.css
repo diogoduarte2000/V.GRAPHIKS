@@ -52,7 +52,7 @@ body {
 
 /* Container Principal (branco) */
 .main-container {
-    background-color: #f6efe5cc; /* Leve transparência para ver o bg? */
+    background-color: #fdf9f3cc; /* Leve transparência para ver o bg? */
     width: 100%;
     max-width: 800px;
     padding: 40px;

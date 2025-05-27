@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redesign corporativo - Surfari</title>
+    <title data-i18n="projectTitleID">Redesign corporativo - Surfari</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../styles.css">
     <style>
@@ -60,65 +60,83 @@
         }
         
         .language-selector-container {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
             z-index: 100;
         }
 
         .language-selector {
-            padding: 8px 12px;
-            border-radius: 4px;
-            border: 1px solid #ffb600;
+            padding: 6px 10px;
+            border-radius: 20px;
+            border: 2px solid #ffb600;
             background-color: white;
             color: #333;
             font-family: 'Arial', sans-serif;
             cursor: pointer;
             outline: none;
+            font-size: 14px;
+            font-weight: bold;
+            width: 70px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background-color: #ffb600;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <div class="language-selector-container">
+        <select id="language-selector" class="language-selector">
+            <option value="pt">PT</option>
+            <option value="en">EN</option>
+        </select>
+    </div>
+
+    <!-- Resto do conteúdo permanece igual -->
     <div class="page-wrapper">
         <div class="main-container">
-            <a href="../index.html#portfolio" class="back-btn">
+            <a href="../index.html#portfolio" class="back-btn" data-i18n="back">
                 <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
             </a>
             
             <div class="project-hero">
-                <h1>Redisign da marca "surfari"</h1>
-                <p>Reranding Completo para Escola de Surf</p>
+                <h1 data-i18n="projectTitleID">Redisign da marca "surfari"</h1>
+                <p data-i18n="projectSubtitleID">Reranding Completo para Escola de Surf</p>
             </div>
             
             <div class="project-content">
                 <div class="project-details">
-                    <h2>O Projeto</h2>
-                    <p>Desenvolvimento completo de identidade visual para uma escola de surf</p>
+                    <h2 data-i18n="projectHeading">O Projeto</h2>
+                    <p data-i18n="projectDescription">Desenvolvimento completo de identidade visual para uma escola de surf</p>
                 
                     
-                    <h3>Elementos Visuais</h3>
-                    <p>Criamos um sistema de design completo incluindo:</p>
+                    <h3 data-i18n="visualElements">Elementos Visuais</h3>
+                    <p data-i18n="visualElementsDesc">Criamos um sistema de design completo incluindo:</p>
                     <ul>
-                        <li>Logotipo principal e variações</li>
-                        <li>Sistema de ícones customizados</li>
-                        <li>Padrões visuais</li>
-                        <li>Diretrizes de marca</li>
-                        <li>material de markting</li>
+                        <li data-i18n="element1">Logotipo principal e variações</li>
+                        <li data-i18n="element2">Sistema de ícones customizados</li>
+                        <li data-i18n="element3">Padrões visuais</li>
+                        <li data-i18n="element4">Diretrizes de marca</li>
+                        <li data-i18n="element5">material de markting</li>
                     </ul>
                     
                     <div class="project-specs">
-                        <h3>Especificações</h3>
+                        <h3 data-i18n="specsHeading">Especificações</h3>
                         <div class="specs-grid">
                             <div class="spec-item">
-                                <h4>Cliente</h4>
+                                <h4 data-i18n="client">Cliente</h4>
                                 <p>Surfari</p>
                             </div>
                             <div class="spec-item">
-                                <h4>Ano</h4>
+                                <h4 data-i18n="year">Ano</h4>
                                 <p>2023</p>
                             </div>
                             <div class="spec-item">
-                                <h4>Serviços</h4>
+                                <h4 data-i18n="services">Serviços</h4>
                                 <p>Branding, Design System</p>
                             </div>
                         </div>
@@ -135,6 +153,54 @@
         </div>
     </div>
 
-    <script src="../script.js"></script>
+    <script>
+        const translations = {
+            pt: {
+                back: "Voltar ao Portfólio",
+                projectTitleID: "Redisign da marca \"surfari\"",
+                projectSubtitleID: "Reranding Completo para Escola de Surf",
+                projectHeading: "O Projeto",
+                projectDescription: "Desenvolvimento completo de identidade visual para uma escola de surf",
+                visualElements: "Elementos Visuais",
+                visualElementsDesc: "Criamos um sistema de design completo incluindo:",
+                element1: "Logotipo principal e variações",
+                element2: "Sistema de ícones customizados",
+                element3: "Padrões visuais",
+                element4: "Diretrizes de marca",
+                element5: "material de markting",
+                specsHeading: "Especificações",
+                client: "Cliente",
+                year: "Ano",
+                services: "Serviços"
+            },
+            en: {
+                back: "Back to Portfolio",
+                projectTitleID: "Surfari Brand Redesign",
+                projectSubtitleID: "Complete Rebranding for Surf School",
+                projectHeading: "The Project",
+                projectDescription: "Complete visual identity development for a surf school",
+                visualElements: "Visual Elements",
+                visualElementsDesc: "We created a complete design system including:",
+                element1: "Main logo and variations",
+                element2: "Custom icon system",
+                element3: "Visual patterns",
+                element4: "Brand guidelines",
+                element5: "Marketing materials",
+                specsHeading: "Specifications",
+                client: "Client",
+                year: "Year",
+                services: "Services"
+            }
+        };
+
+        const selector = document.getElementById('language-selector');
+        selector.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.textContent = translations[lang][key];
+            });
+        });
+    </script>
 </body>
 </html>
