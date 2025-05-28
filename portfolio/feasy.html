@@ -77,19 +77,35 @@
             transform: scale(1.03);
         }
 
+        /* NOVO ESTILO APENAS PARA O BOTÃO VOLTAR */
         .back-btn {
-            display: inline-block;
-            margin-bottom: 30px;
-            color: #ffb600;
-            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #4361ee;
+            color: white;
+            border-radius: 5px;
             text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #3a0ca3;
+            transform: translateX(-5px);
         }
 
         .back-btn i {
             margin-right: 8px;
+            transition: all 0.3s ease;
         }
 
-        /* NOVO ESTILO PARA O BOTÃO DE IDIOMA */
+        .back-btn:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* ESTILO DO BOTÃO DE IDIOMA */
         .language-selector-container {
             position: fixed;
             top: 20px;
@@ -135,12 +151,12 @@
 
     <div class="page-wrapper">
         <div class="main-container">
+            <!-- Botão Voltar modificado -->
             <a href="../index.html#portfolio" class="back-btn" data-i18n="back">
-                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+                <i class="fas fa-arrow-left"></i> Voltar Atrás
             </a>
 
             <div class="project-hero">
-                <!-- Vídeo com autoplay e loop -->
                 <video autoplay muted loop playsinline>
                     <source src="../vid/motion-teaser.mp4" type="video/mp4">
                 </video>
@@ -156,7 +172,6 @@
                     <p>Série de animações criadas para a campanha de lançamento do novo aplicativo de bem-estar mental "feasy".</p>
 
                     <div class="video-container">
-                        <!-- Vídeo principal também com autoplay e loop -->
                         <video autoplay muted loop controls poster="../img/motion-poster.jpg">
                             <source src="../vid/Comp 2.mp4" type="video/mp4">
                             Seu navegador não suporta vídeos HTML5.
@@ -195,18 +210,23 @@
                     <img src="../img/Screenshot 2025-05-17 162858.png" alt="">
                 </div>
             </div>
+            
+            <!-- Botão Voltar no final -->
+            <a href="../index.html#portfolio" class="back-btn" data-i18n="back" style="margin-top: 40px;">
+                <i class="fas fa-arrow-left"></i> Voltar Atrás
+            </a>
         </div>
     </div>
 
     <script>
         const translations = {
             pt: {
-                back: "Voltar ao Portfólio",
+                back: "Voltar Atrás",
                 projectTitleFeasy: "Motion Design para Campanha",
                 projectSubtitleFeasy: "Animações e Vídeos Promocionais"
             },
             en: {
-                back: "Back to Portfolio",
+                back: "Go Back",
                 projectTitleFeasy: "Motion Design for Campaign",
                 projectSubtitleFeasy: "Animations and Promotional Videos"
             }
