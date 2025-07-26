@@ -1,201 +1,645 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>V.Graphiks Corp - Motion & Graphic Design</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <style>
-        
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v.graphiks - Design Gráfico & Motion Design</title>
+  <meta name="description" content="Soluções visuais criativas: branding, motion design e design gráfico para destacar sua marca.">
+  <style>
+    :root {
+      --primary: #0044ff;
+      --secondary: #fbe300;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg-light: #f9f9f9;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+    
+    header {
+      background-color: var(--secondary);
+      color: var(--primary);
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: -1px;
+    }
+    
+    h2 {
+      color: var(--primary);
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary);
+    }
+    
+    .translate-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: var(--text-light);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .translate-btn:hover {
+      background: #0033cc;
+      transform: translateY(-2px);
+    }
+    
+    .contact-info {
+      margin-top: 15px;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s;
+    }
+    
+    .contact-info a:hover {
+      color: #0033cc;
+      text-decoration: underline;
+    }
+    
+    .description {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: var(--bg-light);
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .services {
+      padding: 50px 20px;
+      background-color: white;
+      text-align: center;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .service-card h3 {
+      color: var(--primary);
+    }
+    
+    /* Seção de Testemunhos Atualizada */
+    .testimonials {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      background: #000;
+    }
+    
+    .testimonial {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+    }
+    
+    .testimonial.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .testimonial.next {
+      transform: translateX(100%);
+    }
+    
+    .testimonial.prev {
+      transform: translateX(-100%);
+    }
+    
+    .testimonial-content {
+      background: rgba(30, 30, 30, 0.95);
+      padding: 30px;
+      max-width: 700px;
+      border-radius: 10px;
+      z-index: 2;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      color: #F5F5DC;
+    }
+    
+    .testimonial-content p {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    
+    .testimonial-content strong {
+      color: white;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    
+    .testimonial-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4);
+      z-index: 1;
+    }
+    
+    .pricing {
+      background: var(--bg-light);
+      padding: 50px 20px;
+      text-align: center;
+    }
+    
+    .pricing table {
+      margin: auto;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .pricing th, .pricing td {
+      border: 1px solid #ddd;
+      padding: 15px;
+      text-align: left;
+    }
+    
+    .pricing th {
+      background-color: var(--primary);
+      color: white;
+      font-weight: bold;
+    }
+    
+    .pricing tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    .pricing tr:hover {
+      background-color: #e6e6e6;
+    }
+
+    /* Seção de contacto atualizada */
+    .contact-section {
+      padding: 50px 20px;
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .contact-btn {
+      background-color: var(--secondary);
+      color: var(--primary);
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .contact-btn:hover {
+      background-color: #e6d100;
+      transform: translateY(-3px);
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .whatsapp-btn:hover {
+      background-color: #1da851;
+    }
+
+    .phone-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .phone-contact span {
+      font-weight: bold;
+    }
+
+    .phone-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    footer {
+      background-color: var(--text-dark);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .testimonials {
+        height: 450px;
+      }
+      
+      .testimonial-content {
+        padding: 20px;
+      }
+
+      .contact-options {
+        gap: 12px;
+      }
+
+      .contact-btn {
+        padding: 12px 20px;
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="language-selector-container">
-        <select id="language-selector" class="language-selector">
-            <option value="pt">PT</option>
-            <option value="en">EN</option>
-        </select>
+  <header>
+    <h1></h1>
+    <h1>v.graphiks</h1>
+    <h1></h1>
+    <button class="translate-btn" onclick="toggleLanguage()">EN</button>
+  </header>
+  
+  <section class="description" id="description">
+    <p>Na v.graphiks, criamos soluções visuais que combinam criatividade, funcionalidade e impacto. Do branding ao motion design, os nossos clientes confiam no nosso trabalho para dar vida às suas ideias e destacar as suas marcas.</p>
+  </section>
+  
+  <section class="services">
+    <h2>Nossos Serviços</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Branding</h3>
+        <p>Criação de identidades visuais completas que comunicam a essência da sua marca de forma memorável.</p>
+      </div>
+      <div class="service-card">
+        <h3>Motion Design</h3>
+        <p>Animações e vídeos que contam histórias e engajam seu público-alvo de forma dinâmica.</p>
+      </div>
+      <div class="service-card">
+        <h3>Design Gráfico</h3>
+        <p>Soluções visuais para impressos e digitais, desde cartões de visita a banners para redes sociais.</p>
+      </div>
+      <div class="service-card">
+        <h3>Apresentações</h3>
+        <p>Slides profissionais e impactantes que destacam seu conteúdo e mantêm a audiência engajada.</p>
+      </div>
     </div>
-
-    <div class="page-wrapper">
-        <div class="header-container">
-            <img src="img/head.png" alt="V.Graphiks Corp" class="header-image" />
-        </div>
-
-        <div class="image-spacer"></div>
-
-        <div class="main-container">
-            <h1 data-i18n="companyName">V.Graphiks Corp</h1>
-
-            <div class="text-box tagline-box">
-                <p><strong data-i18n="tagline1">v.graphiks</strong> <span data-i18n="tagline2">— Onde o design sai do básico e entra no extraordinário. 🚀</span></p>
-            </div>
-
-            <div class="text-box about-box">
-                <h2 data-i18n="aboutTitle">Quem Somos</h2>
-                <p data-i18n="aboutText1">Somos uma empresa especializada em Motion Design e Graphic Design...</p>
-                <p data-i18n="aboutText2">Trabalhamos para entregar produtos de alta qualidade...</p>
-            </div>
-
-            <div class="text-box description-box">
-                <p data-i18n="description1">Se queres que o teu negócio pareça a sério...</p>
-                <p data-i18n="description2">Logos, vídeos, motion, tudo pensado para fazer dinheiro entrar 💰...</p>
-                <p data-i18n="description3">Porque aqui, a única jogada é fazer o teu concorrente parecer lento. 🐢⚡</p>
-                <p data-i18n="description4">Quer crescer? Sabes a quem ligar. 📞</p>
-                <p data-i18n="description5">v.graphiks — o teu melhor amigo no mundo do design. 🤝🎨</p>
-            </div>
-
-            <div class="section-spacer"></div>
-
-            <div class="portfolio portfolio-section" id="portfolio">
-                <h2 data-i18n="portfolioTitle">Portfólio</h2>
-                <div class="portfolio-grid">
-                    <a href="portfolio/surfari.html" class="portfolio-item">
-                        <div class="portfolio-placeholder" style="background-color: #ffb600;">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                        </div>
-                        <p data-i18n="portfolioItem1">Redesign corporativo - Surfari</p>
-                    </a>
-                    <a href="portfolio/identidade-visual-corporativa.html" class="portfolio-item">
-                        <div class="portfolio-placeholder" style="background-color: #6e48aa;">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <p data-i18n="portfolioItem2">Identidade Visual Corporativa / web design</p>
-                    </a>
-                    <a href="portfolio/feasy.html" class="portfolio-item">
-                        <div class="portfolio-placeholder" style="background-color: #4361ee;">
-                            <i class="fas fa-film"></i>
-                        </div>
-                        <p data-i18n="portfolioItem3">Motion Design Fasy - Sistema de Faturação</p>
-                    </a>
-                    <!-- Dentro da div .portfolio-grid no index.html -->
-                    <a href="portfolio/banner-youtube.html" class="portfolio-item">
-                        <div class="portfolio-placeholder" style="background-color: #ff0000;">
-                         <i class="fab fa-youtube"></i>
-                     </div>
-                     <p data-i18n="portfolioItem4">Banner para YouTube - Design Criativo</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="section-spacer"></div>
-
-            <div class="contact-info contact-section">
-                <h2 data-i18n="contactTitle">Contactos</h2>
-                <div class="text-box">
-                    <p><i class="fas fa-phone-alt contact-icon"></i> <strong data-i18n="phoneLabel">Telefone:</strong> 933 402 201</p>
-                    <p><i class="fas fa-envelope contact-icon"></i> <strong data-i18n="emailLabel">Email:</strong> v.graphikscorp@gmail.com</p>
-                    <p><i class="fab fa-instagram contact-icon"></i> <strong data-i18n="instagramLabel">Instagram:</strong> <a href="https://www.instagram.com/v.graphiks/" target="_blank" rel="noopener noreferrer">@v.graphiks</a></p>
-
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=v.graphikscorp@gmail.com&su=Pedido%20de%20Informação&body=Olá%20V.Graphiks%2C%0A%0AGostaria%20de%20saber%20mais%20sobre%20os%20vossos%20serviços.%0A%0AObrigado!" target="_blank" rel="noopener noreferrer" id="gmail-btn" class="gmail-btn">
-                        <i class="fab fa-google"></i>
-                        <span data-i18n="gmailBtn">Enviar Mensagem via Gmail</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="section-spacer"></div>
-
-            <footer>
-                <p data-i18n="copyright">&copy; 2023 V.Graphiks Corp. Todos os direitos reservados.</p>
-            </footer>
-        </div>
+  </section>
+  
+  <section class="testimonials" id="testimonials">
+    <div class="testimonial active">
+      <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg" class="testimonial-background" alt="Pessoas trabalhando em design">
+      <div class="testimonial-content">
+        <p>"A v.graphiks superou as minhas expectativas! O branding que criaram para a nossa empresa foi simplesmente incrível e ajudou-nos a estabelecer uma identidade forte no mercado."</p>
+        <strong>— Joana Ferreira, Empreendedora</strong>
+      </div>
     </div>
+    <div class="testimonial next">
+      <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg" class="testimonial-background" alt="Equipe criativa em reunião">
+      <div class="testimonial-content">
+        <p>"Serviço muito profissional e rápido. A v.graphiks captou exatamente o que pretendíamos para os nossos vídeos promocionais, resultando num aumento de 30% no engajamento."</p>
+        <strong>— Miguel Costa, Gerente de Marketing</strong>
+      </div>
+    </div>
+    <div class="testimonial">
+      <img src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg" class="testimonial-background" alt="Designer trabalhando em computador">
+      <div class="testimonial-content">
+        <p>"Fiquei impressionada com a atenção ao detalhe e a capacidade de traduzir ideias abstratas em designs concretos. Recomendo vivamente a v.graphiks para qualquer projeto de design."</p>
+        <strong>— Carla Lopes, Designer Freelancer</strong>
+      </div>
+    </div>
+  </section>
+  
+  <section class="pricing" id="pricing">
+    <h2>Tabela de Preços</h2>
+    <table>
+      <tr>
+        <th>Serviço</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+      </tr>
+      <tr>
+        <td>Design de Logotipo</td>
+        <td>3 conceitos + 3 revisões + versões finais</td>
+        <td>€70+</td>
+      </tr>
+      <tr>
+        <td>Identidade Visual</td>
+        <td>Logotipo + cartão visita + papelaria básica</td>
+        <td>€180+</td>
+      </tr>
+      <tr>
+        <td>Motion Design</td>
+        <td>Vídeo animado até 30 segundos</td>
+        <td>€120+</td>
+      </tr>
+      <tr>
+        <td>Post para Redes Sociais</td>
+        <td>Design para Instagram/Facebook/LinkedIn</td>
+        <td>€25/un</td>
+      </tr>
+      <tr>
+        <td>Apresentação</td>
+        <td>Template personalizado + 10 slides</td>
+        <td>€80+</td>
+      </tr>
+    </table>
+    <p style="margin-top: 20px;">* Preços podem variar conforme complexidade do projeto</p>
+  </section>
 
-    <!-- Botão Voltar ao Topo -->
-    <button id="back-to-top" title="Voltar ao topo">↑</button>
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <h2 style="color: var(--secondary);">Contacte-nos</h2>
+      <p>Tem um projeto em mente? Entre em contacto connosco através do email, WhatsApp ou telefone.</p>
+      
+      <div class="contact-options">
+        <!-- Botão de Email atualizado -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=v.graphikscorp@gmail.com" 
+           target="_blank" 
+           class="contact-btn">Enviar Email</a>
+        
+        <!-- Botão de WhatsApp -->
+        <a href="https://wa.me/351933402201" 
+           target="_blank" 
+           class="contact-btn whatsapp-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" style="margin-right: 8px;">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp
+        </a>
+        
+        <div class="phone-contact">
+          <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--secondary)">
+            <path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6h-.3c-.3 0-.5.1-.7.3l-2.2 2.2c-2.8-1.5-5.2-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.4-.5-3.6 0-.5-.5-1-1-1H4c-.5 0-1 .5-1 1 0 9.4 7.6 17 17 17 .5 0 1-.5 1-1v-3.5c0-.5-.5-1-1-1z"/>
+          </svg>
+          <span>+351 933 402 201</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <p>© 2023 v.graphiks - Todos os direitos reservados</p>
+  </footer>
+  
+  <script>
+    // Testimonial slider with right-to-left continuous loop
+    const testimonials = document.querySelectorAll('.testimonial');
+    let current = 0;
+    
+    function showNextTestimonial() {
+      // Get current and next testimonials
+      const currentTestimonial = testimonials[current];
+      const nextTestimonial = testimonials[(current + 1) % testimonials.length];
+      
+      // Set classes for animation
+      currentTestimonial.classList.remove('active');
+      currentTestimonial.classList.add('prev');
+      
+      nextTestimonial.classList.remove('next');
+      nextTestimonial.classList.add('active');
+      
+      // Prepare the next testimonial after this one
+      const newNextIndex = (current + 2) % testimonials.length;
+      const newNextTestimonial = testimonials[newNextIndex];
+      newNextTestimonial.classList.add('next');
+      
+      // Reset the previous testimonial
+      setTimeout(() => {
+        currentTestimonial.classList.remove('prev');
+      }, 600);
+      
+      // Update current index
+      current = (current + 1) % testimonials.length;
+    }
+    
+    // Start the testimonial rotation
+    const testimonialInterval = setInterval(showNextTestimonial, 6000);
+    
+    // Initialize the first two testimonials
+    testimonials[0].classList.add('active');
+    testimonials[1].classList.add('next');
+    
+    // Language toggle
+    const translations = {
+      description: {
+        pt: "Na v.graphiks, criamos soluções visuais que combinam criatividade, funcionalidade e impacto. Do branding ao motion design, os nossos clientes confiam no nosso trabalho para dar vida às suas ideias e destacar as suas marcas.",
+        en: "At v.graphiks, we create visual solutions that combine creativity, functionality and impact. From branding to motion design, our clients trust our work to bring their ideas to life and make their brands stand out."
+      },
+      services: {
+        pt: "Nossos Serviços",
+        en: "Our Services"
+      },
+      branding: {
+        pt: "Criação de identidades visuais completas que comunicam a essência da sua marca de forma memorável.",
+        en: "Complete visual identities that communicate your brand essence in a memorable way."
+      },
+      motion: {
+        pt: "Animações e vídeos que contam histórias e engajam seu público-alvo de forma dinâmica.",
+        en: "Animations and videos that tell stories and engage your target audience dynamically."
+      },
+      graphic: {
+        pt: "Soluções visuais para impressos e digitais, desde cartões de visita a banners para redes sociais.",
+        en: "Visual solutions for print and digital, from business cards to social media banners."
+      },
+      presentations: {
+        pt: "Slides profissionais e impactantes que destacam seu conteúdo e mantêm a audiência engajada.",
+        en: "Professional and impactful slides that highlight your content and keep the audience engaged."
+      },
+      pricing: {
+        pt: "Tabela de Preços",
+        en: "Pricing Table"
+      },
+      logoDesc: {
+        pt: "3 conceitos + 3 revisões + versões finais",
+        en: "3 concepts + 3 revisions + final versions"
+      },
+      identityDesc: {
+        pt: "Logotipo + cartão visita + papelaria básica",
+        en: "Logo + business card + basic stationery"
+      },
+      motionDesc: {
+        pt: "Vídeo animado até 30 segundos",
+        en: "Animated video up to 30 seconds"
+      },
+      socialDesc: {
+        pt: "Design para Instagram/Facebook/LinkedIn",
+        en: "Design for Instagram/Facebook/LinkedIn"
+      },
+      presentationDesc: {
+        pt: "Template personalizado + 10 slides",
+        en: "Custom template + 10 slides"
+      },
+      note: {
+        pt: "* Preços podem variar conforme complexidade do projeto",
+        en: "* Prices may vary depending on project complexity"
+      },
+      contact: {
+        pt: "Contacte-nos",
+        en: "Contact Us"
+      },
+      contactText: {
+        pt: "Tem um projeto em mente? Entre em contacto connosco através do email, WhatsApp ou telefone.",
+        en: "Have a project in mind? Contact us via email, WhatsApp or phone."
+      },
+      emailBtn: {
+        pt: "Enviar Email",
+        en: "Send Email"
+      },
+      whatsappBtn: {
+        pt: "WhatsApp",
+        en: "WhatsApp"
+      }
+    };
+    
+    let isPT = true;
+    function toggleLanguage() {
+      isPT = !isPT;
+      
+      // Update all translatable elements
+      document.getElementById('description').querySelector('p').innerText = 
+        translations.description[isPT ? 'pt' : 'en'];
+      
+      document.querySelector('.services h2').innerText = 
+        translations.services[isPT ? 'pt' : 'en'];
+      
+      document.querySelectorAll('.service-card h3').forEach((h3, i) => {
+        const p = h3.nextElementSibling;
+        switch(i) {
+          case 0: 
+            p.innerText = translations.branding[isPT ? 'pt' : 'en'];
+            break;
+          case 1:
+            p.innerText = translations.motion[isPT ? 'pt' : 'en'];
+            break;
+          case 2:
+            p.innerText = translations.graphic[isPT ? 'pt' : 'en'];
+            break;
+          case 3:
+            p.innerText = translations.presentations[isPT ? 'pt' : 'en'];
+            break;
+        }
+      });
+      
+      document.querySelector('.pricing h2').innerText = 
+        translations.pricing[isPT ? 'pt' : 'en'];
+      
+      const tableCells = document.querySelectorAll('.pricing td');
+      tableCells[1].innerText = translations.logoDesc[isPT ? 'pt' : 'en'];
+      tableCells[4].innerText = translations.identityDesc[isPT ? 'pt' : 'en'];
+      tableCells[7].innerText = translations.motionDesc[isPT ? 'pt' : 'en'];
+      tableCells[10].innerText = translations.socialDesc[isPT ? 'pt' : 'en'];
+      tableCells[13].innerText = translations.presentationDesc[isPT ? 'pt' : 'en'];
+      
+      document.querySelector('.pricing p').innerText = 
+        translations.note[isPT ? 'pt' : 'en'];
 
-    <!-- Som opcional -->
-    <audio id="click-sound" src="https://freesound.org/data/previews/256/256113_3263906-lq.mp3"></audio>
-
-    <script>
-        const translations = {
-            pt: {
-                companyName: "V.Graphiks Corp",
-                tagline1: "v.graphiks",
-                tagline2: "— Onde o design sai do básico e entra no extraordinário. 🚀",
-                description1: "Se queres que o teu negócio pareça a sério, mas com aquele twist que ninguém esquece, és meu cliente. 😉",
-                description2: "Logos, vídeos, motion, tudo pensado para fazer dinheiro entrar 💰, não para decorar paredes. 🖼️",
-                description3: "Porque aqui, a única jogada é fazer o teu concorrente parecer lento. 🐢⚡",
-                description4: "Quer crescer? Sabes a quem ligar. 📞",
-                description5: "v.graphiks — o teu melhor amigo no mundo do design. 🤝🎨",
-                aboutTitle: "Quem Somos",
-                aboutText1: "Somos uma empresa especializada em Motion Design e Graphic Design, dedicada a criar soluções visuais impactantes e criativas para o seu negócio.",
-                aboutText2: "Trabalhamos para entregar produtos de alta qualidade que comunicam efetivamente a mensagem da sua marca.",
-                portfolioTitle: "Portfólio",
-                portfolioItem1: "Redesign corporativo - Surfari",
-                portfolioItem2: "Identidade Visual Corporativa / web design",
-                portfolioItem3: "Motion Design Fasy - Sistema de Faturação",
-                portfolioItem4: "Banner para YouTube - Design Criativo",  // PT
-                contactTitle: "Contactos",
-                phoneLabel: "Telefone:",
-                emailLabel: "Email:",
-                instagramLabel: "Instagram:",
-                gmailBtn: "Enviar Mensagem via Gmail",
-                copyright: "&copy; 2023 V.Graphiks Corp. Todos os direitos reservados."
-            },
-            en: {
-                companyName: "V.Graphiks Corp",
-                tagline1: "v.graphiks",
-                tagline2: "— Where design goes from basic to extraordinary. 🚀",
-                description1: "If you want your business to look serious but with that unforgettable twist, you're my client. 😉",
-                description2: "Logos, videos, motion, everything designed to make money come in 💰, not to decorate walls. 🖼️",
-                description3: "Because here, the only move is to make your competitor look slow. 🐢⚡",
-                description4: "Want to grow? You know who to call. 📞",
-                description5: "v.graphiks — your best friend in the design world. 🤝🎨",
-                aboutTitle: "About Us",
-                aboutText1: "We are a company specialized in Motion Design and Graphic Design, dedicated to creating impactful and creative visual solutions for your business.",
-                aboutText2: "We work to deliver high-quality products that effectively communicate your brand's message.",
-                portfolioTitle: "Portfolio",
-                portfolioItem1: "Corporate redesign - Surfari",
-                portfolioItem2: "Corporate Visual Identity / web design",
-                portfolioItem3: "Fasy Motion Design - Billing System",
-                portfolioItem4: "YouTube Banner - Creative Design",       // EN
-                contactTitle: "Contact",
-                phoneLabel: "Phone:",
-                emailLabel: "Email:",
-                instagramLabel: "Instagram:",
-                gmailBtn: "Send Message via Gmail",
-                copyright: "&copy; 2023 V.Graphiks Corp. All rights reserved."
-                
-            }
-        };
-
-        const selector = document.getElementById('language-selector');
-        const clickSound = document.getElementById('click-sound');
-
-        selector.addEventListener('change', (e) => {
-            const lang = e.target.value;
-            clickSound.play();
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = translations[lang][key];
-                } else {
-                    el.innerHTML = translations[lang][key];
-                    el.classList.add('highlight');
-                    setTimeout(() => el.classList.remove('highlight'), 500);
-                }
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const lang = 'pt';
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                el.innerHTML = translations[lang][key];
-            });
-        });
-
-        // Voltar ao topo
-        const topBtn = document.getElementById("back-to-top");
-        window.addEventListener("scroll", () => {
-            topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-        });
-        topBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    </script>
+      // Contact section translations
+      document.querySelector('.contact-section h2').innerText = 
+        translations.contact[isPT ? 'pt' : 'en'];
+      
+      document.querySelector('.contact-section p').innerText = 
+        translations.contactText[isPT ? 'pt' : 'en'];
+      
+      document.querySelector('.contact-btn:not(.whatsapp-btn)').innerText = 
+        translations.emailBtn[isPT ? 'pt' : 'en'];
+      
+      document.querySelector('.translate-btn').innerText = isPT ? 'EN' : 'PT';
+    }
+  </script>
 </body>
 </html>
