@@ -36,10 +36,10 @@ if (cursor && follower) {
   })
 
   const animateCursor = () => {
-    cursorX += (mouseX - cursorX) * 0.2
-    cursorY += (mouseY - cursorY) * 0.2
-    followerX += (mouseX - followerX) * 0.08
-    followerY += (mouseY - followerY) * 0.08
+    cursorX += (mouseX - cursorX) * 0.35
+    cursorY += (mouseY - cursorY) * 0.35
+    followerX += (mouseX - followerX) * 0.15
+    followerY += (mouseY - followerY) * 0.15
 
     cursor.style.left = `${cursorX}px`
     cursor.style.top = `${cursorY}px`
