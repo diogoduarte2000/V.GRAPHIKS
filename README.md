@@ -2,7 +2,7 @@
 
 **V.GRAPHIKS** is a premium graphic design studio portfolio built with a focus on high-end aesthetics, smooth interactions, and a "Bauhaus-inspired" design language.
 
-![V.GRAPHIKS Preview](public/images/project1.png)
+SITE - " https://v-graphiks.vercel.app/ "
 
 ## 🚀 Overview
 This project showcases a modern, responsive design portfolio for a graphic design studio based in Lisboa, Portugal. It features advanced animations, a custom interaction system, and a clean, geometric visual identity.
