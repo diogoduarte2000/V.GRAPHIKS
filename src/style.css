@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap');
 
+html {
+  font-size: 90%;
+}
+
 :root {
   --bg: #fcfaf1;
   --text: #1a1a1a;
@@ -9,8 +13,8 @@
   --green: #009640;
   --font-body: 'Inter', sans-serif;
   --font-display: 'Syne', sans-serif;
-  --px: 5vw;
-  --py: 10vh;
+  --px: 4.5vw;
+  --py: 9vh;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

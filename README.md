@@ -5,7 +5,7 @@
 ![V.GRAPHIKS Preview](public/images/project1.png)
 
 ## 🚀 Overview
-This project showcases a modern, responsive design portfolio for a graphic design studio based in Porto, Portugal. It features advanced animations, a custom interaction system, and a clean, geometric visual identity.
+This project showcases a modern, responsive design portfolio for a graphic design studio based in Lisboa, Portugal. It features advanced animations, a custom interaction system, and a clean, geometric visual identity.
 
 ## 🛠️ Technologies Used
 - **Frontend Core**: HTML5, Vanilla JavaScript (ES6+)
