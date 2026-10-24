@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro'
+import Chrome from '../../components/Chrome.astro'
+import { PortableText } from 'astro-portabletext'
+import { getProjects, getProject, getSettings } from '../../sanity/content.js'
+
+// Gera uma página estática por projeto, no build.
+export async function getStaticPaths() {
+  const projects = await getProjects()
+  return projects.map((p) => ({ params: { slug: p.slug } }))
+}
+
+const { slug } = Astro.params
+const [project, settings] = await Promise.all([getProject(slug), getSettings()])
+
+if (!project) return Astro.redirect('/404')
+
+const all = await getProjects()
+const index = all.findIndex((p) => p.slug === slug)
+const next = all[(index + 1) % all.length]
+---
+<Base
+  title={`${project.title} — V.GRAPHIKS`}
+  description={project.excerpt || settings.metaDescription}
+  ogImage={project.coverUrl?.startsWith('http') ? project.coverUrl : (project.coverUrl || '/og-image.jpg')}
+  type="article"
+  settings={settings}
+>
+  <Chrome />
+  <div id="app">
+    <main id="main">
+      <section class="project-page">
+        <a href="/#projects" class="back-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" />
+          </svg>
+          <span>Todos os projetos</span>
+        </a>
+
+        <div class="project-hero">
+          <h1>{project.title}</h1>
+          {project.excerpt && <p class="about-lead">{project.excerpt}</p>}
+        </div>
+
+        <dl class="project-meta">
+          {project.client && (<div><dt>Cliente</dt><dd>{project.client}</dd></div>)}
+          {project.year && (<div><dt>Ano</dt><dd>{project.year}</dd></div>)}
+          {project.tags?.length > 0 && (
+            <div><dt>Serviços</dt><dd>{project.tags.join(', ')}</dd></div>
+          )}
+        </dl>
+
+        <div class="project-cover">
+          <img src={project.coverUrl} alt={project.coverAlt}
+               width="1800" height="1200" fetchpriority="high" decoding="async" />
+        </div>
+
+        {project.body && (
+          <div class="project-body"><PortableText value={project.body} /></div>
+        )}
+
+        {project.gallery?.length > 0 && (
+          <div class="project-gallery">
+            {project.gallery.map((g) => (
+              <img src={g.url} alt={g.alt} loading="lazy" decoding="async" />
+            ))}
+          </div>
+        )}
+
+        {next && next.slug !== slug && (
+          <div class="project-nav">
+            <span class="section-label">Projeto seguinte</span>
+            <a href={`/projetos/${next.slug}`} class="back-link" style="margin:0;opacity:1;">
+              <span>{next.title}</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        )}
+      </section>
+    </main>
+  </div>
+</Base>

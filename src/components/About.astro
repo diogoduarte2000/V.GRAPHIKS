@@ -1,0 +1,26 @@
+---
+const { settings } = Astro.props
+const headingLines = (settings.aboutHeading || '').split('\n')
+---
+<section id="about" class="about">
+  <div class="section-header" data-reveal>
+    <span class="section-label">03</span>
+    <h2>{headingLines.map((line, i) => <>{i > 0 && <br />}{line}</>)}</h2>
+  </div>
+
+  <div class="about-content">
+    <div class="about-text" data-reveal>
+      <p class="about-lead">{settings.aboutLead}</p>
+      <p>{settings.aboutBody}</p>
+    </div>
+    <div class="about-stats" data-reveal>
+      {settings.stats?.map((s) => (
+        <div class="stat">
+          <span class="stat-number" data-count={s.value}>0</span
+          >{s.suffix && <span class="stat-suffix">{s.suffix}</span>}
+          <span class="stat-label">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

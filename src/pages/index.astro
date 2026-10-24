@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro'
+import Chrome from '../components/Chrome.astro'
+import Hero from '../components/Hero.astro'
+import Projects from '../components/Projects.astro'
+import Services from '../components/Services.astro'
+import About from '../components/About.astro'
+import Contact from '../components/Contact.astro'
+import { getSettings, getProjects, getServices } from '../sanity/content.js'
+
+// Isto corre no build. O HTML final já leva tudo escrito.
+const [settings, projects, services] = await Promise.all([
+  getSettings(), getProjects(), getServices(),
+])
+---
+<Base
+  title={settings.siteTitle}
+  description={settings.metaDescription}
+  ogImage={settings.ogImage || '/og-image.jpg'}
+  settings={settings}
+>
+  <Chrome />
+  <div id="app">
+    <main id="main">
+      <Hero settings={settings} />
+      <Projects projects={projects} />
+      <Services services={services} />
+      <About settings={settings} />
+      <Contact settings={settings} />
+    </main>
+  </div>
+</Base>
