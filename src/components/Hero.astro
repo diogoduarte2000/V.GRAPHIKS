@@ -1,0 +1,36 @@
+---
+const { settings } = Astro.props
+---
+<section class="hero">
+  <div class="shape circle" aria-hidden="true"></div>
+  <div class="shape square" aria-hidden="true"></div>
+  <div class="shape triangle" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <h1 data-reveal>
+      {settings.heroLine1}<br />
+      <span class="highlight-yellow">{settings.heroLine2a}</span> <span class="highlight-red">{settings.heroLine2b}</span>
+    </h1>
+
+    <div class="hero-sub">
+      <p data-reveal>{settings.heroSubtitle}</p>
+      <div class="hero-meta" data-reveal>
+        <div class="location-badge">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <small>{settings.location}</small>
+        </div>
+        <a href="#projects" class="scroll-cta">
+          <span>Ver Trabalhos</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator" data-reveal aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>

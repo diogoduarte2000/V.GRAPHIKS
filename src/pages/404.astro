@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro'
+import Chrome from '../components/Chrome.astro'
+import { getSettings } from '../sanity/content.js'
+const settings = await getSettings()
+---
+<Base title="Página não encontrada — V.GRAPHIKS"
+      description="A página que procuras não existe."
+      noindex settings={settings}>
+  <Chrome />
+  <div id="app">
+    <main id="main">
+      <section class="hero">
+        <div class="shape circle" aria-hidden="true"></div>
+        <div class="shape square" aria-hidden="true"></div>
+        <div class="hero-content">
+          <h1>404</h1>
+          <div class="hero-sub">
+            <p>Esta página não existe. Deve ter sido redesenhada.</p>
+            <div class="hero-meta">
+              <a href="/" class="scroll-cta"><span>Voltar ao início</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Base>

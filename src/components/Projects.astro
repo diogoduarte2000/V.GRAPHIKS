@@ -1,0 +1,40 @@
+---
+const { projects } = Astro.props
+---
+<section id="projects" class="projects">
+  <div class="section-header" data-reveal>
+    <span class="section-label">01</span>
+    <h2>Projetos<br />Selecionados</h2>
+  </div>
+
+  <div class="projects-grid">
+    {projects.map((p, i) => (
+      <a
+        href={`/projetos/${p.slug}`}
+        class:list={['project-card', { large: p.featured }]}
+        data-reveal
+        aria-label={`Ver o projeto ${p.title}`}
+      >
+        <div class="project-image">
+          <img
+            src={p.coverUrl}
+            alt={p.coverAlt}
+            width="1400"
+            height={p.featured ? 600 : 1750}
+            loading={i < 2 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : 'auto'}
+            decoding="async"
+          />
+        </div>
+        <div class="project-info">
+          {p.tags?.length > 0 && (
+            <div class="project-tags">{p.tags.map((t) => <span>{t}</span>)}</div>
+          )}
+          <h3>{p.title}</h3>
+          <p>{p.excerpt}</p>
+          {p.year && <span class="project-year">{p.year}</span>}
+        </div>
+      </a>
+    ))}
+  </div>
+</section>

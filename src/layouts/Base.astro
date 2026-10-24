@@ -1,0 +1,86 @@
+---
+import '../styles/global.css'
+
+const {
+  title,
+  description,
+  ogImage = '/og-image.jpg',
+  type = 'website',
+  noindex = false,
+  settings = {},
+} = Astro.props
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+const ogImageUrl = new URL(ogImage, Astro.site).href
+
+// JSON-LD: faltava por completo. Diz ao Google que isto é um negócio
+// local em Lisboa, o que ajuda nas pesquisas com intenção geográfica.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'V.GRAPHIKS',
+  description,
+  url: Astro.site?.href,
+  image: ogImageUrl,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lisboa',
+    addressCountry: 'PT',
+  },
+  areaServed: { '@type': 'Country', name: 'Portugal' },
+  ...(settings.phone ? { telephone: settings.phone } : {}),
+  ...(settings.socials?.length ? { sameAs: settings.socials.map((s) => s.url) } : {}),
+  knowsAbout: ['Branding', 'Web Design', 'Design Gráfico', 'Identidade Visual'],
+}
+---
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    {/* Open Graph — faltava o og:image, por isso as partilhas saíam sem imagem */}
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="pt_PT" />
+    <meta property="og:site_name" content="V.GRAPHIKS" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <meta name="theme-color" content="#fcfaf1" />
+
+    {/* Fontes com preconnect — antes vinham num @import dentro do CSS,
+        o que atrasa o primeiro render */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+
+  <body>
+    <a href="#main" class="skip-link">Saltar para o conteúdo</a>
+    <slot />
+    <script>
+      import '../scripts/main.js'
+    </script>
+  </body>
+</html>

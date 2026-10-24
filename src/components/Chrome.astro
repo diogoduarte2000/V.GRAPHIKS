@@ -1,0 +1,36 @@
+---
+// Preloader + cursor + navegação: partilhado por todas as páginas.
+const { links = [] } = Astro.props
+const navLinks = links.length ? links : [
+  { href: '/#projects', label: 'Trabalhos' },
+  { href: '/#services', label: 'Serviços' },
+  { href: '/#about', label: 'Sobre' },
+  { href: '/#contact', label: 'Contacto' },
+]
+---
+<div id="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <div class="preloader-logo">v.graphiks</div>
+    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+  </div>
+</div>
+
+<div id="cursor" class="custom-cursor" aria-hidden="true"></div>
+<div id="cursor-follower" class="cursor-follower" aria-hidden="true"></div>
+
+<nav id="navbar" aria-label="Navegação principal">
+  <a href="/" class="logo">v.graphiks</a>
+  <div class="nav-links">
+    {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menu"
+          aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-links">
+    {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+  </div>
+</div>

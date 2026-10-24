@@ -1,0 +1,30 @@
+---
+const { services } = Astro.props
+---
+<section id="services" class="services">
+  <div class="section-header" data-reveal>
+    <span class="section-label">02</span>
+    <h2>O Que<br />Fazemos</h2>
+  </div>
+
+  <div class="services-list">
+    {services.map((s, i) => (
+      <div class="service-item" data-reveal data-service-img={s.hoverImageUrl}>
+        <div class="service-number">{String(i + 1).padStart(2, '0')}</div>
+        <div class="service-content">
+          <h3>{s.title}</h3>
+          <p>{s.description}</p>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div id="service-hover-img" class="service-hover-img" aria-hidden="true">
+    <img src="" alt="" />
+  </div>
+</section>

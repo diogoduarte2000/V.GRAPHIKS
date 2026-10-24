@@ -1,0 +1,53 @@
+---
+const { settings } = Astro.props
+const [emailUser, emailDomain] = (settings.email || '@').split('@')
+const marquee = settings.marqueeText
+---
+<section id="contact" class="contact">
+  <div class="marquee-container" aria-hidden="true">
+    <div class="marquee-content">
+      <span>{marquee} • </span><span>{marquee} • </span><span>{marquee} • </span>
+    </div>
+  </div>
+
+  <div class="contact-wrapper">
+    <div class="clock-container" data-reveal aria-hidden="true">
+      <div id="clock">--:--:--</div>
+    </div>
+
+    <div class="contact-main">
+      <div class="contact-text" data-reveal>
+        <h2>{settings.contactHeading}</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p>{settings.contactBody}</p>
+        <div class="phone-link">
+          <a href={`tel:+${settings.phoneRaw}`}>{settings.phone}</a>
+        </div>
+      </div>
+
+      <div class="contact-actions" data-reveal>
+        <button id="email-btn" class="action-btn email" type="button"
+                data-user={emailUser} data-domain={emailDomain}>
+          <span>ENVIAR EMAIL</span>
+          <div class="btn-hover-bg" aria-hidden="true"></div>
+        </button>
+        <a href={`https://wa.me/${settings.phoneRaw}`} target="_blank"
+           rel="noopener noreferrer" class="action-btn whatsapp">
+          <span>WHATSAPP</span>
+          <div class="btn-hover-bg" aria-hidden="true"></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-social">
+        {settings.socials?.map((s) => (
+          <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>
+        ))}
+      </div>
+      <div class="credits">
+        <p>© {new Date().getFullYear()} v.graphiks — Todos os direitos reservados</p>
+      </div>
+    </div>
+  </div>
+</section>
